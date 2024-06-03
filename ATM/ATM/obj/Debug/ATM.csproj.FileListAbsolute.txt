@@ -1,0 +1,14 @@
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.exe.config
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.exe
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.pdb
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.csproj.AssemblyReference.cache
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.csproj.CoreCompileInputs.cache
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.exe
+D:\Personal\Coding\Schoolwork\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.pdb
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.exe.config
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.exe
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\bin\Debug\ATM.pdb
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.csproj.AssemblyReference.cache
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.csproj.CoreCompileInputs.cache
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.exe
+C:\Personal\Computer Science\Sem 2\OOP\OOP GIT\ATM Machine\ATM\ATM\obj\Debug\ATM.pdb
