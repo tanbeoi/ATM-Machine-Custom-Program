@@ -23,20 +23,5 @@ namespace ATM
         {
             return $"{Type} of ${Amount} on {Date}";
         }
-
-        // Serialization and Deserialization Methods
-        public virtual string Serialize()
-        {
-            return $"{Type},{Amount},{Date}";
-        }
-
-        public static Transaction Deserialize(string data)
-        {
-            var parts = data.Split(',');
-            var type = (TransactionType)Enum.Parse(typeof(TransactionType), parts[0]);
-            var amount = int.Parse(parts[1]);
-            var date = DateTime.Parse(parts[2]);
-            return new Transaction(type, amount) { Date = date };
-        }
     }
 }

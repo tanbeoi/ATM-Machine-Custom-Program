@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO; // Add this line
 
 namespace ATM
 {
@@ -20,8 +19,6 @@ namespace ATM
                 _name = name;
             }
         }
-
-        public List<Account> Accounts { get; }
 
         public string Id
         {
@@ -83,36 +80,5 @@ namespace ATM
             }
             return null;
         }
-
-
-        // Serialization and Deserialization Methods
-        public string Serialize()
-        {
-            var accountStrings = new List<string>();
-            foreach (var account in _accounts)
-            {
-                accountStrings.Add(account.Serialize());
-            }
-            return $"{_name}|{string.Join(",", _ids)}|{string.Join(";", accountStrings)}";
-        }
-
-        public static Bank Deserialize(string data)
-        {
-            var parts = data.Split('|');
-            var name = parts[0];
-            var ids = new List<string>(parts[1].Split(','));
-            var bank = new Bank(ids, name);
-            if (parts.Length > 2)
-            {
-                var accountStrings = parts[2].Split(';');
-                foreach (var accountString in accountStrings)
-                {
-                    var account = Account.Deserialize(accountString);
-                    bank.AddAccount(account);
-                }
-            }
-            return bank;
-        }
-
     }
 }
