@@ -13,27 +13,5 @@ namespace ATM
         {
         }
 
-        public override string Withdraw(int amount)
-        {
-            if (amount > Balance)
-            {
-                return null;
-            }
-            else
-            {
-                Balance -= amount;
-                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
-                AddTransaction(transaction);
-                return $"You have withdrawn ${amount}. Your new balance is ${Balance}";
-            }
-        }
-
-        public override string Deposit(int amount)
-        {
-            Balance += amount;
-            Transaction transaction = new Transaction(TransactionType.Deposit, amount);
-            AddTransaction(transaction);
-            return $"You have deposited ${amount}. Your new balance is ${Balance}";
-        }
     }
 }

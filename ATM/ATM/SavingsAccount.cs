@@ -33,26 +33,14 @@ namespace ATM
 
         public override string Deposit(int amount)
         {
-            int extra = (amount * InterestRate) / 100;
-            base.Deposit(amount + extra);
+            double extra = amount * (InterestRate / 100.0);
+            Console.WriteLine(extra);
+            int total = amount + (int)extra;
+            base.Deposit(total);
             Transaction transaction = new Transaction(TransactionType.Deposit, amount);
             AddTransaction(transaction);
             return ($"Interest applied at {InterestRate}% for deposit of ${amount}. Now your balance is ${Balance}");
         }
 
-        public override string Withdraw(int amount)
-        {
-            if (amount <= Balance)
-            {
-                base.Withdraw(amount);
-                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
-                AddTransaction(transaction);
-                return $"You have withdrawn ${amount}. Your new balance is ${Balance}";
-            }
-            else
-            {
-                return null;
-            }
-        }
     }
 }

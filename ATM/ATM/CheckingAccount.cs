@@ -41,14 +41,6 @@ namespace ATM
             }
         }
 
-        public override string Deposit(int amount)
-        {
-            base.Deposit(amount);
-            Transaction transaction = new Transaction(TransactionType.Deposit, amount);
-            AddTransaction(transaction);
-            return $"You have deposited ${amount}. Your new balance is ${Balance}";
-        }
-
 
     }
 }
