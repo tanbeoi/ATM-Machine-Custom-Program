@@ -1,0 +1,69 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Personal\\Coding\\Schoolwork\\Sem 2\\OOP\\ATM\\ATM-Machine-Custom-Program\\ATM\\ATM\\ATM.csproj": {}
+  },
+  "projects": {
+    "D:\\Personal\\Coding\\Schoolwork\\Sem 2\\OOP\\ATM\\ATM-Machine-Custom-Program\\ATM\\ATM\\ATM.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Personal\\Coding\\Schoolwork\\Sem 2\\OOP\\ATM\\ATM-Machine-Custom-Program\\ATM\\ATM\\ATM.csproj",
+        "projectName": "ATM",
+        "projectPath": "D:\\Personal\\Coding\\Schoolwork\\Sem 2\\OOP\\ATM\\ATM-Machine-Custom-Program\\ATM\\ATM\\ATM.csproj",
+        "packagesPath": "C:\\Users\\tanph\\.nuget\\packages\\",
+        "outputPath": "D:\\Personal\\Coding\\Schoolwork\\Sem 2\\OOP\\ATM\\ATM-Machine-Custom-Program\\ATM\\ATM\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\tanph\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net472": {
+          "dependencies": {
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[8.0.3, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-arm64": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

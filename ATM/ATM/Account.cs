@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace ATM
 {
@@ -111,6 +112,59 @@ namespace ATM
             {
                 return null;
             }
+        }
+
+        // Serialization and Deserialization Methods
+        public string Serialize()
+        {
+            var transactionsString = string.Join(";", _transactions.Select(t => t.Serialize()));
+            return $"{GetType().Name},{_accountNumber},{_password},{_balance},{transactionsString}";
+        }
+
+        public static Account Deserialize(string data)
+        {
+            var parts = data.Split(',');
+            var accountType = parts[0];
+            var accountNumber = int.Parse(parts[1]);
+            var password = int.Parse(parts[2]);
+            var balance = int.Parse(parts[3]);
+            var transactionsString = parts.Length > 4 ? parts[4] : string.Empty;
+
+            Account account;
+            if (accountType == nameof(NormalAccount))
+            {
+                account = new NormalAccount(accountNumber, password);
+            }
+            else if (accountType == nameof(SavingsAccount))
+            {
+                var interestRate = int.Parse(parts[4]);
+                transactionsString = parts.Length > 5 ? parts[5] : string.Empty;
+                account = new SavingsAccount(accountNumber, password, interestRate);
+            }
+            else if (accountType == nameof(CheckingAccount))
+            {
+                var overdraftLimit = int.Parse(parts[4]);
+                transactionsString = parts.Length > 5 ? parts[5] : string.Empty;
+                account = new CheckingAccount(accountNumber, password, overdraftLimit);
+            }
+            else
+            {
+                throw new Exception("Unknown account type.");
+            }
+
+            account.Balance = balance;
+
+            if (!string.IsNullOrEmpty(transactionsString))
+            {
+                var transactions = transactionsString.Split(';');
+                foreach (var transactionString in transactions)
+                {
+                    var transaction = Transaction.Deserialize(transactionString);
+                    account.AddTransaction(transaction);
+                }
+            }
+
+            return account;
         }
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace ATM
 {
@@ -34,6 +35,17 @@ namespace ATM
             Transaction transaction = new Transaction(TransactionType.Deposit, amount);
             AddTransaction(transaction);
             return $"You have deposited ${amount}. Your new balance is ${Balance}";
+        }
+
+        // Serialization and Deserialization Methods
+        public static string Serialize(List<Account> accounts)
+        {
+            return JsonSerializer.Serialize(accounts);
+        }
+
+        public static List<Account> Deserialize(string json)
+        {
+            return JsonSerializer.Deserialize<List<Account>>(json);
         }
     }
 }
