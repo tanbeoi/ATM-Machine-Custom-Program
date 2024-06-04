@@ -22,6 +22,8 @@ namespace ATM
             if (amount <= Balance)
             {
                 base.Withdraw(amount);
+                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
+                AddTransaction(transaction);
                 return $"You have withdrawn ${amount}. Your new balance is ${Balance}";
             } 
             else if (amount <= Balance + OverdraftLimit)
@@ -29,6 +31,8 @@ namespace ATM
                 int overdraft = amount - Balance;
                 OverdraftLimit -= overdraft;
                 base.Withdraw(Balance);
+                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
+                AddTransaction(transaction);
                 return $"You have withdrawn ${amount}. Your new balance is ${Balance}. You have used ${overdraft} of your overdraft limit. Your Overdraft limit is ${OverdraftLimit} left.";
             }
             else
@@ -40,6 +44,8 @@ namespace ATM
         public override string Deposit(int amount)
         {
             base.Deposit(amount);
+            Transaction transaction = new Transaction(TransactionType.Deposit, amount);
+            AddTransaction(transaction);
             return $"You have deposited ${amount}. Your new balance is ${Balance}";
         }
 

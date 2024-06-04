@@ -8,6 +8,7 @@ namespace ATM
 {
     public abstract class Account
     {
+        List<Transaction> _transactions = new List<Transaction>();
         int _accountNumber;
         int _password;
         int _balance = 0;
@@ -36,9 +37,22 @@ namespace ATM
             set { _balance = value; }
         }
 
+        public List<Transaction> Transactions
+        {
+            get { return _transactions; }
+            set { _transactions = value; }
+        }
+
+        public void AddTransaction(Transaction transaction)
+        {
+            _transactions.Add(transaction);
+        }
+
         public virtual string Deposit(int amount)
         {
             Balance += amount;
+            Transaction transaction = new Transaction(TransactionType.Deposit, amount);
+            AddTransaction(transaction);
             return $"You have deposited ${amount}. Your new balance is ${Balance}";
         }
 
@@ -51,6 +65,8 @@ namespace ATM
             else
             {
                 Balance -= amount;
+                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
+                AddTransaction(transaction);
                 return $"You have withdrawn ${amount}. Your new balance is ${Balance}";
             }
         }
@@ -65,9 +81,24 @@ namespace ATM
             {
                 Balance -= amount;
                 destinationAccount.Deposit(amount);
+                TransferTransaction transaction = new TransferTransaction(TransactionType.Transfer, amount, destinationAccount);
+                AddTransaction(transaction);
                 return $"You have transferred ${amount} to account number {destinationAccount.AccountNumber}. Your new balance is ${Balance}";
             }
             
+        }
+
+
+        public string TransactionHistory()
+        {
+            int order = 1;
+            string history = "";
+            foreach (Transaction transaction in _transactions)
+            {
+                history += order + ". " + transaction.Print() + "\n";
+                order++;
+            }
+            return history;
         }
 
         public Account? AreYou(int InputAccountNum, int InputPassword)

@@ -35,7 +35,8 @@ namespace ATM
         {
             int extra = (amount * InterestRate) / 100;
             base.Deposit(amount + extra);
-            
+            Transaction transaction = new Transaction(TransactionType.Deposit, amount);
+            AddTransaction(transaction);
             return ($"Interest applied at {InterestRate}% for deposit of ${amount}. Now your balance is ${Balance}");
         }
 
@@ -44,6 +45,8 @@ namespace ATM
             if (amount <= Balance)
             {
                 base.Withdraw(amount);
+                Transaction transaction = new Transaction(TransactionType.Withdraw, amount);
+                AddTransaction(transaction);
                 return $"You have withdrawn ${amount}. Your new balance is ${Balance}";
             }
             else

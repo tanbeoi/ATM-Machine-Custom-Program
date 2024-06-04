@@ -17,8 +17,25 @@ namespace ATM
         {   
             bool isSignedOut = false;
             Console.Clear();
-            Console.WriteLine("Please select an option: \n1. Deposit \n2. Withdraw \n3. Transfer \n4. Check balance \n5. Sign out\n\nYour Option:");
-            int InputOption = Convert.ToInt32(Console.ReadLine().Trim());
+            Console.WriteLine("Please select an option: \n1. Deposit \n2. Withdraw \n3. Transfer \n4. Check balance \n5. Check transactions history\n6. Sign out\n\nYour Option:");
+            string Input;
+            int InputOption;
+
+            while (true)
+            {
+                Input = Console.ReadLine().Trim();
+
+                if (int.TryParse(Input, out InputOption) && InputOption > 0 && InputOption < 7)
+                {
+                    break;
+                }
+                else
+                {
+                    Utility.PrintColoredMessage("Invalid input. Please enter a valid option.", ConsoleColor.Red);
+                    Utility.SleepWithDots(1000);
+                    return AccountOptionsMenu(account, banksDatabase);
+                }
+            }
 
             switch (InputOption)
             {
@@ -165,10 +182,19 @@ namespace ATM
                     Utility.PressEnterToContinue();
                     return AccountOptionsMenu(account, banksDatabase);
 
+
                 case 5:
                     Console.Clear();
+                    Console.WriteLine("Transaction History: ");
+                    Console.WriteLine(account.TransactionHistory());
+                    Utility.PressEnterToContinue();
+                    return AccountOptionsMenu(account, banksDatabase);
+
+
+                case 6:
+                    Console.Clear();
                     Console.WriteLine("You have signed out successfully.");
-                    Utility.SleepWithDots(2000);
+                    Utility.PressEnterToContinue();
                     isSignedOut = true;
                     return isSignedOut;
 
